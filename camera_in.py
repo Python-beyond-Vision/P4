@@ -7,7 +7,7 @@ if not cap.isOpened():
     print('camera open failed')
     sys.exit()
     
-
+# Test
 while True:
     ret, frame = cap.read()
 
