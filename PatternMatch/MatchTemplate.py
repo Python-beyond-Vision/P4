@@ -7,14 +7,14 @@ capture.set(cv2.CAP_PROP_FRAME_HEIGHT, 480)
 
 methods = ['cv2.TM_CCOEFF', 'cv2.TM_CCOEFF_NORMED', 'cv2.TM_CCORR', 'cv2.TM_CCORR_NORMED', 'cv2.TM_SQDIFF', 'cv2.TM_SQDIFF_NORMED']
 
-template = cv2.imread('pattern_eye.jpg')
+template = cv2.imread('image/pattern_eye.jpg')
 height, width = template.shape[:2]
 
 while True:
     ret, frame = capture.read()
     # cv2.imshow("VideoFrame", frame)
 
-    key = cv2.waitKey(10)
+    key = cv2.waitKey(10)   # 'q' pressed
     if key == 113:
         print('pressed')
         cv2.imwrite("roi2.jpg", frame)
