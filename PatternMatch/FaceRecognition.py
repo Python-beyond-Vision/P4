@@ -3,7 +3,7 @@ import numpy as np
 
 capture = cv2.VideoCapture(0)
 
-faceCascadePath = '/Users/eungushin/Documents/Git/opencv-1/data/haarcascades_cuda/haarcascade_frontalface_default.xml'
+faceCascadePath = '/Users/eungushin/Documents/Git/opencv-1/data/haarcascades/haarcascade_frontalface_default.xml'
 faceCascade = cv2.CascadeClassifier(faceCascadePath)
 
 while True:
@@ -14,9 +14,9 @@ while True:
     ret, frame = capture.read()
     image_gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
 
-    faces = faceCascade.detectMultiScale(image_gray, scaleFactor=1.3,
-                                                    minNeighbors=3,
-                                                    minSize=(30,30))
+    faces = faceCascade.detectMultiScale(image_gray, scaleFactor=1.1,
+                                                    minNeighbors=5,
+                                                    minSize=(150,150))
 
     for x, y, w, h in faces:
         cv2.rectangle(frame, (x,y), (x+w, y+h), (127,255,0), 3)
